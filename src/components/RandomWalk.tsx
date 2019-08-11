@@ -27,7 +27,7 @@ export class RandomWalk extends React.Component<RandomWalkProps, State> {
     update = () => {
         let { history } = this.state;
 
-        if (history.length == 0) {
+        if (history.length === 0) {
             history = [
                 {
                     ...this.props.offset,
@@ -36,7 +36,11 @@ export class RandomWalk extends React.Component<RandomWalkProps, State> {
             this.setState({ history });
         } else {
             const last = history[history.length - 1];
-            const newPoint = addPoints(last, this.props.distance);
+            const randomWalk = Math.random() > 0.5 ? 1 : -1;
+            const newPoint = addPoints(last, {
+                x: this.props.distance.x,
+                y: randomWalk * this.props.distance.y,
+            });
             const { xInbound, yInbound } = isInbounds(newPoint);
 
             if (!xInbound || !yInbound) {

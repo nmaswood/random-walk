@@ -2,19 +2,19 @@ import React from 'react';
 import './App.scss';
 import { RandomWalk, RandomWalkProps } from './components/RandomWalk';
 
-const FREQUENCY = 100; // seconds
+const FREQUENCY = 10; // seconds
 
 const RANDOM_WALK_DEFAULT = {
     offset: {
-        x: 0,
+        x: 10,
         y: Math.ceil(window.innerHeight / 2),
     },
     distance: {
-        x: 10,
-        y: 10,
+        x: 6,
+        y: 6,
     },
-    radius: 5,
-    frequency: 1000,
+    radius: 3,
+    frequency: 500,
 };
 
 const App: React.FC = () => {
