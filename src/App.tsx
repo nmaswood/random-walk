@@ -1,27 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { RandomWalk, RandomWalkProps } from './components/RandomWalk';
+
+const FREQUENCY = 100; // seconds
+
+const RANDOM_WALK_DEFAULT = {
+    offset: {
+        x: 0,
+        y: Math.ceil(window.innerHeight / 2),
+    },
+    distance: {
+        x: 10,
+        y: 10,
+    },
+    radius: 5,
+    frequency: 1000,
+};
 
 const App: React.FC = () => {
-  return (
-
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    return (
+        <div className="container">
+            <RandomWalk {...RANDOM_WALK_DEFAULT} />
+        </div>
+    );
+};
 
 export default App;
